@@ -703,3 +703,10 @@
 /README.txt
 /robots.txt.dist
 /web.config.txt
+
+/dist/
+/build/
+__pycache__/
+*.dpapi
+*.log
+!/LICENSE.txt

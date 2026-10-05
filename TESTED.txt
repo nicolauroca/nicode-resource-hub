@@ -1,0 +1,56 @@
+CHECKPOINT 0.1.0 — TEST BOUNDARY, 05 OCTOBER 2026
+
+Joomla 6.1.4 / PHP 8.4.26 / MariaDB 11.8.9 on the local Windows lab.
+Cassiopeia frontend and Atum administrator, Chromium via installed Chrome.
+No custom component required. No production hosting accessed.
+
+Passed:
+- 15 helper/template regression checks, including unsafe URL schemes,
+  credentials in URLs, missing/malformed parameters and HTML/attribute escaping.
+- PHP syntax checks for the four extension PHP files and regression test.
+- Native installer, same-version reinstall preserving instance configuration,
+  uninstall removing module files and instances, then fresh native installation.
+- Native administrator configuration and save; public frontend at390/1440px;
+  registered access hidden from anonymous visitor; unpublished instance hidden.
+- English administrator field labels; no browser JavaScript errors observed.
+- Two deterministic builds with identical ZIP bytes.
+- Every source listing extracted from the draft matches source/ZIP hashes;
+  the ZIP built from those extracted listings installs through Joomla.
+- Draft reading layout at390/1440px: ten full source listings, no page overflow;
+  code panels have their own horizontal scrolling. Visual inspection performed.
+
+Integration found and fixed a packaging omission: Joomla need not install language
+files globally for a language not installed on the site. The final manifest also
+ships the complete language folder inside the module for local fallback.
+
+Evening continuation, 05 October 2026:
+- A second Joomla site and empty database were created from the verified official
+  Joomla archive, using the existing local PHP/MariaDB binaries. The previous
+  course lab and the separate Web Monitor lab were not replaced.
+- All ten extension files were reconstructed from the article listings alone.
+  The exact PowerShell Compress-Archive command in the article produced an
+  installable ZIP with all file hashes identical to the canonical build.
+- Native browser upload and configuration in that fresh CMS, without compat6:
+  published output, anonymous viewing access, unpublishing, required title,
+  rejected HTTP URL, changed title, keyboard reachability and visible focus passed.
+- The second-instance exercise passed, including an omitted optional description.
+  Reinstalling preserved both instances. A 160-character unbroken title caused
+  no page overflow at390/1440px in Cassiopeia.
+- Removing the exercise instance from display preserved the first. Native
+  browser uninstall removed the extension, both active/trashed instances and
+  installed files; the frontend still returned HTTP200 without resource markup.
+- The article now spells out the Actions menu used for native uninstall and
+  explains the responsibilities and PHP/manifest mechanisms file by file.
+
+This establishes the clean-CMS reconstruction of checkpoint0.1.0 by the same
+development agent. Automated extraction is used to copy the listings; it does
+not simulate an independent learner's comprehension. No external learner review
+has occurred. The final chapter resource-list scope and editorial gate remain.
+
+Not yet certified: Linux case behaviour, alternate PHP/DB/Joomla combinations,
+future-version upgrade, full Spanish administrator/site session, custom template
+overrides, encrypted baseline restoration, all chapter05 scope and final editorial gate.
+The screenshot review covers the synthetic sample, not arbitrary user content.
+
+Do not call this a stable product, complete chapter, or production-ready package.
+Before release, revalidate current Joomla APIs/versions and resolve remaining gates.

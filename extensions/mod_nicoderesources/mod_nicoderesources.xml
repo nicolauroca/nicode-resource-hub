@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>MOD_NICODERESOURCES</name>
+    <author>Nicolau Roca</author>
+    <creationDate>2026-10</creationDate>
+    <copyright>Copyright (C) 2026 Nicolau Roca</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>0.1.0</version>
+    <description>MOD_NICODERESOURCES_XML_DESCRIPTION</description>
+    <namespace path="src">Nicode\Module\Resources</namespace>
+    <files>
+        <folder module="mod_nicoderesources">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+        <filename>LICENSE.txt</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/mod_nicoderesources.ini</language>
+        <language tag="en-GB">language/en-GB/mod_nicoderesources.sys.ini</language>
+        <language tag="es-ES">language/es-ES/mod_nicoderesources.ini</language>
+        <language tag="es-ES">language/es-ES/mod_nicoderesources.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="resource_title" type="text" label="MOD_NICODERESOURCES_TITLE" required="true" filter="string" maxlength="160" />
+                <field name="resource_url" type="url" label="MOD_NICODERESOURCES_URL" description="MOD_NICODERESOURCES_URL_DESC" required="true" filter="url" validate="url" schemes="https" relative="false" />
+                <field name="resource_description" type="textarea" label="MOD_NICODERESOURCES_DESCRIPTION" filter="string" rows="4" maxlength="1000" />
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" class="form-select" validate="moduleLayout" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
