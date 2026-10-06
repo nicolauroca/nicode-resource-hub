@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import zipfile
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'extensions/mod_nicoderesources'
@@ -11,7 +12,8 @@ DIST = ROOT / 'dist'
 
 def build():
     DIST.mkdir(exist_ok=True)
-    archive = DIST / 'mod_nicoderesources-0.1.0.zip'
+    version = ET.parse(SOURCE / 'mod_nicoderesources.xml').getroot().findtext('version')
+    archive = DIST / f'mod_nicoderesources-{version}.zip'
     entries = {}
     with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as output:
         for source in sorted(SOURCE.rglob('*')):

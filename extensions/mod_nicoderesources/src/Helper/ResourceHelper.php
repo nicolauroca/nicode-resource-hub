@@ -10,6 +10,38 @@ use Joomla\Registry\Registry;
 
 final class ResourceHelper
 {
+    /** Keep the original resource first, then validate up to nine additional rows. */
+    public static function listFromParams(Registry $params): array
+    {
+        $first = self::fromParams($params);
+        $resources = $first === null ? [] : [$first];
+        $rows = $params->get('additional_resources', []);
+
+        if (!is_array($rows) && !($rows instanceof \stdClass)) {
+            return $resources;
+        }
+
+        $examined = 0;
+
+        foreach ($rows as $row) {
+            if (++$examined > 9) {
+                break;
+            }
+
+            if (!is_array($row) && !($row instanceof \stdClass)) {
+                continue;
+            }
+
+            $resource = self::fromParams(new Registry($row));
+
+            if ($resource !== null) {
+                $resources[] = $resource;
+            }
+        }
+
+        return $resources;
+    }
+
     /** Return a display record, or null when the configuration is incomplete or unsafe. */
     public static function fromParams(Registry $params): ?array
     {

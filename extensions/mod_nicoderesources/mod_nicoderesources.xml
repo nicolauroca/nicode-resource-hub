@@ -5,7 +5,7 @@
     <creationDate>2026-10</creationDate>
     <copyright>Copyright (C) 2026 Nicolau Roca</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <description>MOD_NICODERESOURCES_XML_DESCRIPTION</description>
     <namespace path="src">Nicode\Module\Resources</namespace>
     <files>
@@ -27,6 +27,13 @@
                 <field name="resource_title" type="text" label="MOD_NICODERESOURCES_TITLE" required="true" filter="string" maxlength="160" />
                 <field name="resource_url" type="url" label="MOD_NICODERESOURCES_URL" description="MOD_NICODERESOURCES_URL_DESC" required="true" filter="url" validate="url" schemes="https" relative="false" />
                 <field name="resource_description" type="textarea" label="MOD_NICODERESOURCES_DESCRIPTION" filter="string" rows="4" maxlength="1000" />
+                <field name="additional_resources" type="subform" label="MOD_NICODERESOURCES_ADDITIONAL" description="MOD_NICODERESOURCES_ADDITIONAL_DESC" multiple="true" min="0" max="9" layout="joomla.form.field.subform.repeatable" validate="Subform">
+                    <form>
+                        <field name="resource_title" type="text" label="MOD_NICODERESOURCES_TITLE" required="true" filter="string" maxlength="160" />
+                        <field name="resource_url" type="url" label="MOD_NICODERESOURCES_URL" description="MOD_NICODERESOURCES_URL_DESC" required="true" filter="url" validate="url" schemes="https" relative="false" />
+                        <field name="resource_description" type="textarea" label="MOD_NICODERESOURCES_DESCRIPTION" filter="string" rows="3" maxlength="1000" />
+                    </form>
+                </field>
             </fieldset>
             <fieldset name="advanced">
                 <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" class="form-select" validate="moduleLayout" />

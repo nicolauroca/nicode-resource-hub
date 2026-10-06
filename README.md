@@ -3,8 +3,10 @@
 An independent Joomla resource module and the practical project for the planned
 Professional Joomla 6 Development course by Nicolau Roca.
 
-This is educational pilot 0.1.0, not the complete product or a stable release.
-One module instance displays one manually configured HTTPS resource. Multiple
+This is educational pilot 0.2.0, not the complete product or a stable release.
+One module instance displays a first HTTPS resource plus up to nine additional
+resources. Native repeated fields let editors add, remove and reorder additional
+rows; the first resource stays first. Existing 0.1.0 settings are preserved. Multiple
 instances can coexist. No custom component, database table or service is needed.
 
 Tested locally with Joomla 6.1.4, PHP 8.4.26, MariaDB 11.8.9 and Cassiopeia on
@@ -14,7 +16,7 @@ Build from this repository directory with Python 3:
 
     python -B tools/build.py
 
-This creates dist/mod_nicoderesources-0.1.0.zip and dist/manifest.json.
+This creates dist/mod_nicoderesources-0.2.0.zip and dist/manifest.json.
 The generated module ZIP is installable; GitHub's whole-repository source ZIP
 is not a Joomla extension installer. Python is only a build dependency.
 
@@ -33,7 +35,7 @@ Run the helper/template tests using your local Joomla PHP executable:
 
     php tests/module.php /absolute/path/to/joomla
 
-Expected result: JSON with 15 passed checks. Native installation and browser
+Expected result: JSON with 29 passed checks. Native installation and browser
 checks are separate; this command does not modify the site.
 
 Code: GPL-2.0-or-later, see LICENSE.txt. Copyright 2026 Nicolau Roca.
@@ -42,3 +44,6 @@ Never commit CMS configuration, credentials, databases or personal data.
 
 Course programme: https://nicolauroca.dev/nicode-resource-hub/
 Course chapters are being prepared separately and have not been released here.
+
+Upgrade note: a custom 0.1.0 layout override must be adapted from $resource to
+$resources (a list). The tested Cassiopeia lab uses no custom override.

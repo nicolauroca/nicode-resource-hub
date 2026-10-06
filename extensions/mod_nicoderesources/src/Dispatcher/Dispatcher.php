@@ -14,7 +14,7 @@ final class Dispatcher extends AbstractModuleDispatcher
     protected function getLayoutData(): array
     {
         $data = parent::getLayoutData();
-        $data['resource'] = ResourceHelper::fromParams($data['params']);
+        $data['resources'] = ResourceHelper::listFromParams($data['params']);
 
         return $data;
     }

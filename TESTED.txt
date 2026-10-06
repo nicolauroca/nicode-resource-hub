@@ -54,3 +54,21 @@ The screenshot review covers the synthetic sample, not arbitrary user content.
 
 Do not call this a stable product, complete chapter, or production-ready package.
 Before release, revalidate current Joomla APIs/versions and resolve remaining gates.
+
+CHECKPOINT 0.2.0 — 06 OCTOBER 2026
+Same local Joomla6.1.4/PHP8.4.26/MariaDB11.8.9/Cassiopeia/Atum matrix.
+- 29 helper/template assertions: prior URL/escaping checks, array/object rows,
+  invalid records, order, semantic list output, and bounded row traversal.
+- Real native upgrade from0.1.0 preserved the configured first resource.
+- Native repeated-field add, reorder, remove and remove-all persisted correctly.
+  Nested HTTP URLs and blank titles were rejected; whole-module access remains.
+- Ten complete updated article listings reconstructed into a PowerShell ZIP;
+  all extracted files match the deterministic installer. Native uninstall removed
+  files and instances (DB/files/frontend verified after a transient notice was
+  missed by the browser assertion). Fresh module installation from the article
+  ZIP, configuration, visibility, required fields and keyboard checks passed.
+- Reading and frontend checked at390/1440px. Atum editor loads correctly at both
+  widths. A resize-only desktop-to-mobile check overflowed until page reload;
+  this core toolbar behaviour remains a limitation, not a module CSS fix.
+- No independent learner review and no new Joomla/database/PHP matrix claim.
+This extends the pilot; final editorial review and course navigation remain open.
