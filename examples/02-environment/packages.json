@@ -1,0 +1,16 @@
+[
+  {
+    "name": "php",
+    "version": "8.4.26",
+    "url": "https://windows.php.net/downloads/releases/php-8.4.26-nts-Win32-vs17-x64.zip",
+    "sha256": "da68394f9193b7f6b89d0c76861a4034ae10efee7fd55a7255d8118c2acf70d7",
+    "file": "php-8.4.26.zip"
+  },
+  {
+    "name": "joomla",
+    "version": "6.1.4",
+    "url": "https://github.com/joomla/joomla-cms/releases/download/6.1.4/Joomla_6.1.4-Stable-Full_Package.zip",
+    "sha256": "817d2fa37c7f8a7ecbd1d028d6be9362dc6e5fd693f9e07e7fdb9998431e7196",
+    "file": "joomla-6.1.4.zip"
+  }
+]

@@ -1,0 +1,5 @@
+[
+  {"id": 1, "title": "Getting started with resources", "url": "https://example.com/start", "published": true},
+  {"id": 2, "title": "Draft accessibility checklist", "url": "https://example.com/accessibility", "published": false},
+  {"id": 3, "title": "Café resource notes", "url": "https://example.com/notes", "published": true}
+]

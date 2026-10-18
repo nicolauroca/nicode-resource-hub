@@ -1,0 +1,60 @@
+CODE CHECKPOINTS — 18 OCTOBER 2026
+
+Start with README.md for the configurable resource module. This repository now
+also contains the source checkpoints listed below. They are educational pilots,
+not a stable integrated product. The full course articles remain unreleased.
+Prerequisites: basic PHP, HTML/CSS and Joomla administration. The Windows lab
+scripts are for disposable local installations, outside a public web root.
+
+SOURCE MAP
+examples/02-environment: isolated Windows lab, fixture validation and encrypted
+checkpoint exercises. prepare.ps1 requires the exact downloaded files listed in
+packages.json; it does not install a website or database. install-local.php also
+requires MariaDB binaries and an administrator password on stdin. The lab uses
+127.0.0.1:33079 and site URL http://127.0.0.1:8769. Do not run these scripts against
+an existing site. checkpoint.ps1 requires PHP/MariaDB stopped and restores only
+to the original absolute path when that destination does not exist. DPAPI ties
+the saved checkpoint to the current Windows account; it is not a portable backup.
+examples/03-services: CLI dependency-injection exercise; pass the path of an
+extracted Joomla installation to run.php. Expected: Completed 11 checks.
+examples/04-installer/mod_nicodewelcome: independent first module, version0.1.0.
+extensions/mod_nicoderesources: configurable resource module, version0.2.0.
+extensions/plg_content_nicodereading: independent content plugin, version0.1.0.
+It adds a heuristic reading-time estimate to individual core articles, not lists.
+examples/10-events: CLI typed-event checks; requires an installed disposable
+Joomla site and the plugin source directory as its two arguments. Its protected
+application bootstrap is test-only, not a supported production extension API.
+extensions/com_nicoderesources: minimal site/admin component, version0.1.0.
+It renders two fixed sample resources; it has no resource editing or storage yet.
+
+BUILD THE ADDITIONAL INSTALLERS
+From this repository root in Windows PowerShell, create a new output directory:
+    New-Item -ItemType Directory -Path checkpoint-zips
+    Compress-Archive -Path examples/04-installer/mod_nicodewelcome/* -DestinationPath checkpoint-zips/mod_nicodewelcome-0.1.0.zip
+    Compress-Archive -Path extensions/plg_content_nicodereading/* -DestinationPath checkpoint-zips/plg_content_nicodereading-0.1.0.zip
+    Compress-Archive -Path extensions/com_nicoderesources/* -DestinationPath checkpoint-zips/com_nicoderesources-0.1.0.zip
+The extension XML must be at the ZIP root, without an extra enclosing folder.
+For the resource module, use python -B tools/build.py as documented in README.md.
+GitHub's whole-repository archive and the examples directories are not installers.
+
+Use a disposable Joomla site: System > Install > Extensions > upload the ZIP.
+Welcome module: Content > Site Modules, select Nicode Welcome, choose a position,
+Published, Public and On all pages. Expect Your first module is running.
+Reading plugin: System > Manage > Plugins, enable Content - Nicode Reading Time.
+Open a nonempty individual article: expect the estimate below its title. Empty
+articles and category lists must not get an estimate. Disable the plugin to stop it.
+Component: Components > Nicode Resource Hub for administration; open
+/index.php?option=com_nicoderesources on the site to see the two fixed records.
+An account without component management permission must not get its admin view.
+Remove pilots through System > Manage > Extensions > Uninstall. Removing a
+module also removes its instances. Preserve anything you need before uninstalling.
+
+EVIDENCE BOUNDARY
+These sources match the retained local article listings and source/installer
+manifests for checkpoints02,03,04,05,09,10,13. The pilots were exercised locally
+on Joomla6.1.4, PHP8.4.26 and MariaDB11.8.9 on Windows. Native lifecycle, negative
+permissions and clean reconstruction evidence is retained locally. Publishing
+the sources does not establish a new CMS test, compatibility with later versions,
+an independent learner trial, or completion of the 56-part course.
+PowerShell ZIP timestamps can differ; compare extracted file hashes, not ZIP
+byte hashes, with the canonical packages. The module Python build is deterministic.

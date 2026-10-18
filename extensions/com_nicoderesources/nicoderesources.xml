@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" method="upgrade">
+    <name>COM_NICODERESOURCES</name>
+    <author>Nicolau Roca</author>
+    <creationDate>2026-10</creationDate>
+    <version>0.1.0</version>
+    <description>COM_NICODERESOURCES_DESCRIPTION</description>
+    <license>GPL-2.0-or-later</license>
+    <element>com_nicoderesources</element>
+    <namespace path="src">Nicode\Component\Resources</namespace>
+    <files folder="site">
+        <folder>src</folder><folder>tmpl</folder><folder>language</folder>
+    </files>
+    <administration>
+        <menu link="option=com_nicoderesources">COM_NICODERESOURCES</menu>
+        <files folder="admin">
+            <folder>services</folder><folder>src</folder><folder>tmpl</folder>
+            <folder>language</folder><filename>access.xml</filename>
+        </files>
+    </administration>
+</extension>

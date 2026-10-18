@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+    <name>PLG_CONTENT_NICODEREADING</name>
+    <author>Nicolau Roca</author>
+    <creationDate>2026-10</creationDate>
+    <copyright>Copyright (C) 2026 Nicolau Roca</copyright>
+    <license>GPL-2.0-or-later</license>
+    <version>0.1.0</version>
+    <description>PLG_CONTENT_NICODEREADING_DESCRIPTION</description>
+    <namespace path="src">Nicode\Plugin\Content\Reading</namespace>
+    <files>
+        <folder plugin="nicodereading">services</folder>
+        <folder>src</folder>
+        <filename>LICENSE.txt</filename>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_content_nicodereading.ini</language>
+        <language tag="en-GB">language/en-GB/plg_content_nicodereading.sys.ini</language>
+        <language tag="es-ES">language/es-ES/plg_content_nicodereading.ini</language>
+        <language tag="es-ES">language/es-ES/plg_content_nicodereading.sys.ini</language>
+    </languages>
+</extension>
