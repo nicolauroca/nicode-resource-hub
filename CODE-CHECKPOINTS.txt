@@ -1,4 +1,4 @@
-CODE CHECKPOINTS — 18 OCTOBER 2026
+CODE CHECKPOINTS — 20 OCTOBER 2026
 
 Start with README.md for the configurable resource module. This repository now
 also contains the source checkpoints listed below. They are educational pilots,
@@ -19,6 +19,13 @@ examples/03-services: CLI dependency-injection exercise; pass the path of an
 extracted Joomla installation to run.php. Expected: Completed 11 checks.
 examples/04-installer/mod_nicodewelcome: independent first module, version0.1.0.
 extensions/mod_nicoderesources: configurable resource module, version0.2.0.
+examples/06-forms/mod_nicoderesources: version0.3.0 of that same module.
+It adds an external resource subform and detailed/compact layout choices.
+This is an alternative checkpoint, not a second separately installable module:
+installing it upgrades mod_nicoderesources and preserves existing0.2.0 settings.
+The URL fields omit relative=false because the tested Joomla validator treats
+that nonempty XML string as true; full HTTPS URLs are required instead.
+The earlier0.2.0 checkpoint is preserved for comparison.
 extensions/plg_content_nicodereading: independent content plugin, version0.1.0.
 It adds a heuristic reading-time estimate to individual core articles, not lists.
 examples/10-events: CLI typed-event checks; requires an installed disposable
@@ -31,10 +38,12 @@ BUILD THE ADDITIONAL INSTALLERS
 From this repository root in Windows PowerShell, create a new output directory:
     New-Item -ItemType Directory -Path checkpoint-zips
     Compress-Archive -Path examples/04-installer/mod_nicodewelcome/* -DestinationPath checkpoint-zips/mod_nicodewelcome-0.1.0.zip
+    Compress-Archive -Path examples/06-forms/mod_nicoderesources/* -DestinationPath checkpoint-zips/mod_nicoderesources-0.3.0.zip
     Compress-Archive -Path extensions/plg_content_nicodereading/* -DestinationPath checkpoint-zips/plg_content_nicodereading-0.1.0.zip
     Compress-Archive -Path extensions/com_nicoderesources/* -DestinationPath checkpoint-zips/com_nicoderesources-0.1.0.zip
 The extension XML must be at the ZIP root, without an extra enclosing folder.
 For the resource module, use python -B tools/build.py as documented in README.md.
+That Python command builds0.2.0; use the explicit06-forms command above for0.3.0.
 GitHub's whole-repository archive and the examples directories are not installers.
 
 Use a disposable Joomla site: System > Install > Extensions > upload the ZIP.
@@ -48,13 +57,24 @@ Component: Components > Nicode Resource Hub for administration; open
 An account without component management permission must not get its admin view.
 Remove pilots through System > Manage > Extensions > Uninstall. Removing a
 module also removes its instances. Preserve anything you need before uninstalling.
+For0.3.0, use a disposable0.2.0 site with configured resources to test an upgrade,
+or install directly in a fresh disposable site. Configure Nicode Resources as
+described in README.md, then choose Detailed list or Links only under Advanced >
+Layout. Detailed list shows descriptions; Links only omits them. Add, reorder
+and remove additional rows. An HTTP or relative URL must be rejected on save.
+Test two module instances with different layouts and access settings. Reinstall
+must preserve their settings; uninstall removes them.
 
 EVIDENCE BOUNDARY
 These sources match the retained local article listings and source/installer
-manifests for checkpoints02,03,04,05,09,10,13. The pilots were exercised locally
+manifests for checkpoints02,03,04,05,06,09,10,13. The pilots were exercised locally
 on Joomla6.1.4, PHP8.4.26 and MariaDB11.8.9 on Windows. Native lifecycle, negative
 permissions and clean reconstruction evidence is retained locally. Publishing
 the sources does not establish a new CMS test, compatibility with later versions,
 an independent learner trial, or completion of the 56-part course.
 PowerShell ZIP timestamps can differ; compare extracted file hashes, not ZIP
 byte hashes, with the canonical packages. The module Python build is deterministic.
+Checkpoint06 retains95 local native assertions covering installation, populated
+upgrade, forms/layouts, access, reinstall and uninstall. English browser UI was
+checked; Spanish strings were checked through the language loader, not a full
+Spanish administrator session. These limits also apply to this source checkpoint.

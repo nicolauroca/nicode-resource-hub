@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+                        <field name="resource_title" type="text" label="MOD_NICODERESOURCES_TITLE" required="true" filter="string" maxlength="160" />
+                        <field name="resource_url" type="url" label="MOD_NICODERESOURCES_URL" description="MOD_NICODERESOURCES_URL_DESC" required="true" filter="url" validate="url" schemes="https" />
+                        <field name="resource_description" type="textarea" label="MOD_NICODERESOURCES_DESCRIPTION" filter="string" rows="3" maxlength="1000" />
+                    </form>
